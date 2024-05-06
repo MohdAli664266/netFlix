@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { NavLink, redirect } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import netFlix from '../../assets/netflix.jpg'
 import {useDispatch} from 'react-redux';
 import {setUser, setIsLoggedIn} from '../redux/reduceSlice';
+import { useSelector } from "react-redux";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,6 +13,13 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   let path = "http://localhost:3000/api/v1/users";
+  const user = useSelector((store) => store.app);
+  useEffect(() => {
+    if (user.isLoggedIn) {
+      navigate("/home");
+    }
+  }, [user.isLoggedIn]);
+
   const loginSubmit = async (e)=>
   {
     e.preventDefault();

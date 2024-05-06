@@ -8,35 +8,36 @@ import Signup from "./Components/Signup/Signup.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Error from "./Components/Error/Error.jsx";
 import Home from "./Components/Home/Home.jsx";
+import Start from "./Components/Start.jsx";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { store } from "./Components/redux/Store.js";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    // children: [
-    //   {
-    //     path: "/login",
-    //     element: <Login />,
-    //   },
-    // ],
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "home",
-    element: <Home />,
-  },
-  {
-    path: "signup",
-    element: <Signup />,
-  },
-  {
-    path: "footer",
-    element: <Footer />,
+    element: <Start />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "footer",
+        element: <Footer />,
+      },
+    ],
   },
   {
     path: "*",

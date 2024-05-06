@@ -4,9 +4,9 @@ import Phone from './assets/phone.jpg';
 function App() {
 
   return (
-    <div className='flex flex-col bg-black/90 gap-2'>
-      <div className='h-screen overflow-hidden absolute blur-[1px]'>
-        <img className='object-cover' src="https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg" alt="" srcset="" />
+    <div className='flex flex-col bg-black/90 gap-2 w-full'>
+      <div className='h-screen w-full overflow-hidden absolute blur-[1px]'>
+        <img className='w-full object-cover' src="https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg" alt="" srcset="" />
       </div>
       <div className='h-screen'>
         <Navbar/>
